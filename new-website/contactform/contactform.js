@@ -94,24 +94,36 @@ jQuery(document).ready(function($) {
       if( ! action ) {
         action = 'contactform/contactform.php';
       }
+      console.log("Got here!")
+      console.log(action)
+      console.log(str)
+
       $.ajax({
         type: "POST",
         url: action,
-        data: str,
-        success: function(msg) {
-          // alert(msg);
-          if (msg == 'OK') {
-            $("#sendmessage").addClass("show");
-            $("#errormessage").removeClass("show");
-            $('.contactForm').find("input, textarea").val("");
-          } else {
-            $("#sendmessage").removeClass("show");
-            $("#errormessage").addClass("show");
-            $('#errormessage').html(msg);
-          }
+        crossDomain: true,
+        data: { id: 12 }
+     });
+
+      // $.ajax({
+      //   type: "POST",
+      //   url: action,
+      //   crossDomain: true,
+      //   data: str,
+      //   success: function(msg) {
+      //     // alert(msg);
+      //     if (msg == 'OK') {
+      //       $("#sendmessage").addClass("show");
+      //       $("#errormessage").removeClass("show");
+      //       $('.contactForm').find("input, textarea").val("");
+      //     } else {
+      //       $("#sendmessage").removeClass("show");
+      //       $("#errormessage").addClass("show");
+      //       $('#errormessage').html(msg);
+      //     }
   
-        }
-      });
+      //   }
+      // });
       return false;
     });
   
